@@ -150,7 +150,7 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 .brand-logo { width: 56px; height: 56px; border-radius: 50%; flex: 0 0 auto; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
 .brand-name { font-family: var(--font-title); font-weight: 600; font-size: 1.3rem; color: var(--forest); white-space: nowrap; }
-.brand-role { font-size: .64rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-top: 3px; white-space: nowrap; }
+.brand-role { font-size: .64rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-top: 3px; white-space: nowrap; }
 
 /* Desktop: voci su una sola riga + CTA a destra */
 .primary-nav { flex: 1 1 auto; display: flex; align-items: center; justify-content: flex-end; gap: clamp(12px, 1.6vw, 28px); min-width: 0; }
@@ -183,7 +183,7 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 .hero-overlay {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse 60% 62% at 50% 50%, rgba(255, 255, 255, .84) 0%, rgba(255, 255, 255, .7) 55%, rgba(255, 255, 255, .42) 100%);
+    radial-gradient(ellipse 60% 62% at 50% 50%, rgba(255, 255, 255, .77) 0%, rgba(255, 255, 255, .62) 55%, rgba(255, 255, 255, .32) 100%);
 }
 .hero-content { max-width: 1000px; display: flex; flex-direction: column; align-items: center; }
 .hero .eyebrow { margin-bottom: 22px; }
@@ -299,13 +299,15 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
   content: ""; position: absolute; inset: -9px; border-radius: 50%; border: 1px dashed var(--line-strong);
   transition: border-color .5s var(--ease), transform 1.2s var(--ease);
 }
-.vine-node svg { width: 54px; height: auto; overflow: visible; }
-.vine-node .leaf-a, .vine-node .leaf-b {
-  fill: var(--accent); transform-box: view-box; transform-origin: 32px 34px;
-  transition: transform .8s cubic-bezier(.34, 1.56, .64, 1);
+/* Icone nutrizione: tratto verde bosco, campiture verdi, dettagli rossi */
+.vine-icon {
+  width: 44px; height: 44px; overflow: visible;
+  fill: none; stroke: var(--forest); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+  transform-origin: center; transition: transform .8s cubic-bezier(.34, 1.56, .64, 1), opacity .4s var(--ease);
 }
-.vine-node .leaf-b { fill: #8EA022; transition-delay: .12s; }
-.vine-node circle { fill: var(--red); transition: transform .5s var(--ease); transform-box: fill-box; transform-origin: center; }
+.vine-icon .ico-fill { fill: var(--accent); }
+.vine-icon .ico-fill-soft { fill: var(--bg-3); }
+.vine-icon .ico-fill-red { fill: var(--red); stroke: var(--forest); }
 .vine-text { grid-row: 1; max-width: 400px; transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .vine-item:nth-child(odd) .vine-text { grid-column: 1; justify-self: end; text-align: right; }
 .vine-item:nth-child(even) .vine-text { grid-column: 3; justify-self: start; text-align: left; }
@@ -319,15 +321,12 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 }
 .vine-text p { color: var(--muted); font-size: 1.02rem; line-height: 1.7; }
 
-/* Stato iniziale (solo con JS): foglie chiuse, testo leggermente spostato */
-.js .vine-node .leaf-a, .js .vine-node .leaf-b { transform: scale(0); }
-.js .vine-node circle { transform: scale(.6); }
+/* Stato iniziale (solo con JS): icona chiusa, testo leggermente spostato */
+.js .vine-icon { transform: scale(0) rotate(-20deg); opacity: 0; }
 .js .vine-text { opacity: 0; }
 .js .vine-item:nth-child(odd) .vine-text { transform: translateX(-24px); }
 .js .vine-item:nth-child(even) .vine-text { transform: translateX(24px); }
-.vine-item.is-grown .vine-node .leaf-a { transform: rotate(-6deg) scale(1); }
-.vine-item.is-grown .vine-node .leaf-b { transform: rotate(6deg) scale(1); }
-.vine-item.is-grown .vine-node circle { transform: scale(1); }
+.vine-item.is-grown .vine-icon { transform: none; opacity: 1; }
 .vine-item.is-grown .vine-node { box-shadow: 0 14px 34px rgba(165, 183, 43, .35); }
 .vine-item.is-grown .vine-node::after { border-color: var(--accent); transform: rotate(90deg); }
 .js .vine-item.is-grown .vine-text { opacity: 1; transform: none; }
@@ -335,7 +334,7 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 /* ---------- Servizi ---------- */
 .services-grid {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr;
-  gap: clamp(20px, 2.6vw, 32px); max-width: 1080px; margin-inline: auto;
+  gap: clamp(18px, 2.2vw, 26px); max-width: 940px; margin-inline: auto;
 }
 .service-card {
   display: flex; flex-direction: column; height: 100%;
@@ -343,19 +342,19 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
   transition: transform .35s var(--ease), box-shadow .35s var(--ease);
 }
 .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-.service-media { aspect-ratio: 16 / 9; overflow: hidden; background: var(--sage); flex: 0 0 auto; }
+.service-media { aspect-ratio: 16 / 8.5; overflow: hidden; background: var(--sage); flex: 0 0 auto; }
 .service-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); }
 .service-card:hover .service-media img { transform: scale(1.04); }
-.service-body { padding: clamp(24px, 2.6vw, 34px); flex: 1 1 auto; position: relative; }
+.service-body { padding: clamp(22px, 2.2vw, 28px); flex: 1 1 auto; position: relative; }
 .service-body::before {
-  content: ""; position: absolute; top: 0; left: clamp(24px, 2.6vw, 34px); width: 40px; height: 3px;
+  content: ""; position: absolute; top: 0; left: clamp(22px, 2.2vw, 28px); width: 40px; height: 3px;
   background: var(--red); border-radius: 0 0 3px 3px;
 }
 .service-body h3 {
-  font-family: var(--font-title); font-weight: 600; font-size: clamp(1.5rem, 1.3rem + .5vw, 1.75rem); line-height: 1.2;
+  font-family: var(--font-title); font-weight: 600; font-size: clamp(1.45rem, 1.3rem + .4vw, 1.62rem); line-height: 1.2;
   margin-bottom: 12px; min-height: 2.4em; display: flex; align-items: flex-end; text-wrap: balance;
 }
-.service-body p { color: var(--muted); font-size: .99rem; line-height: 1.75; }
+.service-body p { color: var(--muted); font-size: .96rem; line-height: 1.7; }
 
 /* ---------- Come funziona: percorso animato ---------- */
 .journey { position: relative; max-width: 1140px; margin-inline: auto; }
@@ -419,10 +418,10 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: 12px; }
 .faq-item {
-  background: var(--surface); border-radius: 12px; border: 1px solid var(--line);
+  background: var(--bg-3); border-radius: 12px; border: 1px solid transparent;
   transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
-.faq-item:hover { border-color: var(--line-strong); }
+.faq-item:hover { border-color: rgba(39, 52, 42, .18); }
 .faq-item:has(button[aria-expanded="true"]) { box-shadow: var(--shadow); border-color: transparent; }
 .faq-q { font-size: inherit; }
 .faq-q button {
@@ -648,7 +647,7 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
   .vine-item { grid-template-columns: 64px minmax(0, 1fr); column-gap: 20px; min-height: 0; padding-block: 26px; align-items: start; }
   .vine-node { grid-column: 1; width: 64px; height: 64px; }
   .vine-node::after { inset: -6px; }
-  .vine-node svg { width: 42px; }
+  .vine-icon { width: 34px; height: 34px; }
   .vine-item:nth-child(odd) .vine-text,
   .vine-item:nth-child(even) .vine-text { grid-column: 2; justify-self: start; text-align: left; max-width: none; }
   .js .vine-item:nth-child(odd) .vine-text,
@@ -660,7 +659,7 @@ h3 { font-family: var(--font-text); font-weight: 700; font-size: 1.1rem; line-he
 @media (max-width: 560px) {
   .hero { min-height: calc(100svh - var(--header-h)); padding-block: 56px 64px; }
   .hero-media img { object-position: 30% center; }
-  .hero-overlay { background: radial-gradient(ellipse 120% 70% at 50% 50%, rgba(255, 255, 255, .86) 0%, rgba(255, 255, 255, .74) 60%, rgba(255, 255, 255, .5) 100%); }
+  .hero-overlay { background: radial-gradient(ellipse 120% 70% at 50% 50%, rgba(255, 255, 255, .8) 0%, rgba(255, 255, 255, .67) 60%, rgba(255, 255, 255, .42) 100%); }
   .hero .eyebrow { font-size: .68rem; letter-spacing: .14em; line-height: 1.8; flex-direction: column; gap: 0; }
   .hero .eyebrow .sep { display: none; }
   .hero h1 { font-size: clamp(2.2rem, 1.3rem + 4.6vw, 2.8rem); }
