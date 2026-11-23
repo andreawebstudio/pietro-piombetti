@@ -128,6 +128,34 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutTrack);
   }
 
+  /* ---------- Approccio: il ramo cresce e le foglie germogliano ---------- */
+  var vine = document.getElementById('vine');
+  if (vine) {
+    var vineItems = Array.prototype.slice.call(vine.querySelectorAll('.vine-item'));
+    var vineTicking = false;
+    var updateVine = function () {
+      var vh = window.innerHeight;
+      var p = 1;
+      if (!reduceMotion) {
+        var r = vine.getBoundingClientRect();
+        p = Math.min(1, Math.max(0, (vh * 0.72 - r.top) / Math.max(r.height, 1)));
+      }
+      vine.style.setProperty('--vine-off', (1 - p).toFixed(3));
+      vineItems.forEach(function (item) {
+        var node = item.querySelector('.vine-node').getBoundingClientRect();
+        var grown = reduceMotion || node.top + node.height / 2 < vh * 0.78;
+        item.classList.toggle('is-grown', grown);
+      });
+    };
+    updateVine();
+    window.addEventListener('scroll', function () {
+      if (vineTicking) return;
+      vineTicking = true;
+      requestAnimationFrame(function () { updateVine(); vineTicking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', updateVine);
+  }
+
   /* ---------- FAQ accordion (tutte chiuse all'avvio) ---------- */
   document.querySelectorAll('.faq-q button').forEach(function (btn) {
     var panel = document.getElementById(btn.getAttribute('aria-controls'));

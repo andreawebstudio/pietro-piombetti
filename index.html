@@ -102,7 +102,7 @@
       </div>
     </section>
 
-    <!-- 3. CHI SONO — sfondo #FFFFFF -->
+    <!-- 3. CHI SONO — sfondo alternato -->
     <section class="section bg-1" id="chi-sono" aria-labelledby="chi-sono-title">
       <div class="container about">
         <figure class="about-photo reveal">
@@ -127,8 +127,8 @@
       </div>
     </section>
 
-    <!-- 4. A CHI MI RIVOLGO — sfondo #A5B72B -->
-    <section class="section bg-2" id="a-chi-mi-rivolgo" aria-labelledby="target-title">
+    <!-- 4. A CHI MI RIVOLGO — sfondo alternato -->
+    <section class="section bg-3" id="a-chi-mi-rivolgo" aria-labelledby="target-title">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">A chi mi rivolgo</p>
@@ -167,8 +167,8 @@
       </div>
     </section>
 
-    <!-- 5. IL MIO APPROCCIO — sfondo #D6DE85 -->
-    <section class="section bg-3" id="approccio" aria-labelledby="approccio-title">
+    <!-- 5. IL MIO APPROCCIO — sfondo alternato -->
+    <section class="section bg-1" id="approccio" aria-labelledby="approccio-title">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Approccio</p>
@@ -177,51 +177,62 @@
           <p class="section-sub">Credo in un approccio nutrizionale che parta dalla conoscenza della persona e che valorizzi il cambiamento graduale.</p>
         </header>
 
-        <div class="orbit">
-          <div class="orbit-core reveal" aria-hidden="true">
-            <svg class="orbit-rings" viewBox="0 0 320 320">
-              <circle class="ring ring-1" cx="160" cy="160" r="150"/>
-              <circle class="ring ring-2" cx="160" cy="160" r="118"/>
-              <circle class="ring ring-3" cx="160" cy="160" r="86"/>
-              <g class="orbit-spin">
-                <circle class="orbit-dot" cx="160" cy="10" r="5"/>
-                <circle class="orbit-dot small" cx="310" cy="160" r="3.5"/>
-              </g>
-              <g class="orbit-spin reverse">
-                <circle class="orbit-dot leafy" cx="160" cy="42" r="4"/>
-                <circle class="orbit-dot small" cx="42" cy="160" r="3"/>
-              </g>
-            </svg>
-            <div class="orbit-center">
-              <span class="orbit-kicker">al centro</span>
-              <span class="orbit-word">tu</span>
-            </div>
-          </div>
+        <!-- Un ramo che cresce allo scroll: ogni principio germoglia come una foglia -->
+        <div class="vine" id="vine">
+          <svg class="vine-stem" viewBox="0 0 40 1000" preserveAspectRatio="none" aria-hidden="true">
+            <path class="vine-stem-base" pathLength="1" d="M20 0 C34 125 6 250 20 375 S34 625 20 750 S6 940 20 1000"/>
+            <path class="vine-stem-grow" pathLength="1" d="M20 0 C34 125 6 250 20 375 S34 625 20 750 S6 940 20 1000"/>
+          </svg>
+          <span class="vine-bud" aria-hidden="true"></span>
 
-          <ul class="principles">
-            <li class="principle p-1 reveal">
-              <h3>Ascolto</h3>
-              <p>Ogni percorso parte dalla comprensione delle tue <strong>abitudini</strong>, delle necessità individuali e degli obiettivi.</p>
+          <ul class="vine-list">
+            <li class="vine-item">
+              <span class="vine-node" aria-hidden="true">
+                <svg viewBox="0 0 64 40"><path class="leaf-a" d="M32 34C24 20 13 11 2 11c4 15 16 23 30 23Z"/><path class="leaf-b" d="M32 34c8-14 19-23 30-23-4 15-16 23-30 23Z"/><circle cx="32" cy="34" r="3.2"/></svg>
+              </span>
+              <div class="vine-text">
+                <span class="vine-kicker">Ti conosco</span>
+                <h3>Ascolto</h3>
+                <p>Ogni percorso parte dalla comprensione delle tue <strong>abitudini</strong>, delle necessità individuali e degli obiettivi.</p>
+              </div>
             </li>
-            <li class="principle p-2 reveal">
-              <h3>Personalizzazione</h3>
-              <p>Indicazioni definite sulla tua <strong>situazione personale</strong>, sullo stile di vita e sulle eventuali esigenze cliniche.</p>
+            <li class="vine-item">
+              <span class="vine-node" aria-hidden="true">
+                <svg viewBox="0 0 64 40"><path class="leaf-a" d="M32 34C24 20 13 11 2 11c4 15 16 23 30 23Z"/><path class="leaf-b" d="M32 34c8-14 19-23 30-23-4 15-16 23-30 23Z"/><circle cx="32" cy="34" r="3.2"/></svg>
+              </span>
+              <div class="vine-text">
+                <span class="vine-kicker">Su misura</span>
+                <h3>Personalizzazione</h3>
+                <p>Indicazioni definite sulla tua <strong>situazione personale</strong>, sullo stile di vita e sulle eventuali esigenze cliniche.</p>
+              </div>
             </li>
-            <li class="principle p-3 reveal">
-              <h3>Equilibrio</h3>
-              <p>Un'alimentazione <strong>varia e consapevole</strong>, senza restrizioni drastiche o soluzioni estreme.</p>
+            <li class="vine-item">
+              <span class="vine-node" aria-hidden="true">
+                <svg viewBox="0 0 64 40"><path class="leaf-a" d="M32 34C24 20 13 11 2 11c4 15 16 23 30 23Z"/><path class="leaf-b" d="M32 34c8-14 19-23 30-23-4 15-16 23-30 23Z"/><circle cx="32" cy="34" r="3.2"/></svg>
+              </span>
+              <div class="vine-text">
+                <span class="vine-kicker">Senza estremi</span>
+                <h3>Equilibrio</h3>
+                <p>Un'alimentazione <strong>varia e consapevole</strong>, senza restrizioni drastiche o soluzioni estreme.</p>
+              </div>
             </li>
-            <li class="principle p-4 reveal">
-              <h3>Gradualità</h3>
-              <p>Il cambiamento si costruisce con <strong>passi concreti e sostenibili</strong>, monitorati nel tempo.</p>
+            <li class="vine-item">
+              <span class="vine-node" aria-hidden="true">
+                <svg viewBox="0 0 64 40"><path class="leaf-a" d="M32 34C24 20 13 11 2 11c4 15 16 23 30 23Z"/><path class="leaf-b" d="M32 34c8-14 19-23 30-23-4 15-16 23-30 23Z"/><circle cx="32" cy="34" r="3.2"/></svg>
+              </span>
+              <div class="vine-text">
+                <span class="vine-kicker">Un passo alla volta</span>
+                <h3>Gradualità</h3>
+                <p>Il cambiamento si costruisce con <strong>passi concreti e sostenibili</strong>, monitorati nel tempo.</p>
+              </div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- 6. I SERVIZI — sfondo #FFFFFF -->
-    <section class="section bg-1" id="servizi" aria-labelledby="servizi-title">
+    <!-- 6. I SERVIZI — sfondo alternato -->
+    <section class="section bg-3" id="servizi" aria-labelledby="servizi-title">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Servizi</p>
@@ -242,7 +253,7 @@
             </div>
             <div class="service-body">
               <h3>Valutazione nutrizionale e composizione corporea</h3>
-              <p>Valuto le abitudini alimentari e i <strong>parametri antropometrici</strong>. La composizione corporea viene analizzata con la <strong>bioimpedenziometria</strong>: un esame molto semplice e non invasivo, effettuato con una bilancia bioimpedenziometrica, per l'analisi qualitativa e quantitativa della composizione corporea. Dopo la prima visita, i <strong>controlli</strong> permettono di monitorare l'andamento del percorso.</p>
+              <p>Valuto abitudini alimentari e parametri antropometrici. Con la <strong>bioimpedenziometria</strong>, esame semplice e non invasivo eseguito con una bilancia bioimpedenziometrica, analizzo la composizione corporea in modo qualitativo e quantitativo. Dopo la prima visita, i <strong>controlli</strong> monitorano l'andamento.</p>
             </div>
           </article>
 
@@ -257,7 +268,7 @@
             </div>
             <div class="service-body">
               <h3>Nutrizione clinica</h3>
-              <p>Un supporto nutrizionale personalizzato per esigenze legate a <strong>condizioni cliniche diagnosticate</strong>, come alterazioni metaboliche, problematiche gastrointestinali e altre necessità alimentari specifiche. Le indicazioni vengono costruite tenendo conto della condizione di salute, dello stile di vita e delle preferenze alimentari, per un percorso <strong>sostenibile nel tempo</strong>.</p>
+              <p>Supporto nutrizionale personalizzato per <strong>condizioni cliniche diagnosticate</strong>, come alterazioni metaboliche e problematiche gastrointestinali. Costruisco indicazioni alimentari che tengono conto dello stato di salute, dello stile di vita e delle preferenze, per un percorso <strong>sostenibile nel tempo</strong>.</p>
             </div>
           </article>
 
@@ -272,7 +283,7 @@
             </div>
             <div class="service-body">
               <h3>Nutrizione sportiva</h3>
-              <p>Percorsi alimentari adattati alla <strong>disciplina praticata</strong>, alla frequenza degli allenamenti e agli obiettivi individuali. L'alimentazione viene organizzata con attenzione all'<strong>energia</strong>, alla prestazione e al <strong>recupero</strong>, sia per chi pratica sport a livello agonistico sia per chi si allena per il proprio benessere.</p>
+              <p>Percorsi alimentari adattati alla <strong>disciplina praticata</strong>, alla frequenza degli allenamenti e agli obiettivi individuali. Organizzo l'alimentazione con attenzione all'energia, alla prestazione e al <strong>recupero</strong>, per atleti agonisti e per chi si allena per il proprio benessere.</p>
             </div>
           </article>
 
@@ -287,7 +298,7 @@
             </div>
             <div class="service-body">
               <h3>Educazione alimentare e gestione del peso</h3>
-              <p>Percorsi dedicati alla <strong>perdita di peso</strong> e al mantenimento nel tempo, senza diete drastiche. Lavoriamo insieme sulle <strong>abitudini quotidiane</strong>, per comprendere le tue esigenze e sviluppare scelte alimentari più consapevoli, con un rapporto equilibrato e sereno con il cibo.</p>
+              <p>Percorsi per la <strong>perdita di peso</strong> e per il mantenimento nel tempo, senza diete drastiche. Lavoriamo insieme sulle <strong>abitudini quotidiane</strong> per sviluppare scelte alimentari più consapevoli e costruire, passo dopo passo, un rapporto equilibrato e sereno con il cibo.</p>
             </div>
           </article>
         </div>
@@ -298,8 +309,8 @@
       </div>
     </section>
 
-    <!-- 7. COME FUNZIONA — sfondo #A5B72B -->
-    <section class="section bg-2" id="come-funziona" aria-labelledby="percorso-title">
+    <!-- 7. COME FUNZIONA — sfondo alternato -->
+    <section class="section bg-1" id="come-funziona" aria-labelledby="percorso-title">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Come funziona</p>
@@ -335,7 +346,7 @@
       </div>
     </section>
 
-    <!-- 8. DOVE RICEVO — sfondo #D6DE85 -->
+    <!-- 8. DOVE RICEVO — sfondo alternato -->
     <section class="section bg-3" id="dove-ricevo" aria-labelledby="sedi-title">
       <div class="container">
         <header class="section-head reveal">
@@ -377,7 +388,7 @@
       </div>
     </section>
 
-    <!-- 9. FAQ — sfondo #FFFFFF -->
+    <!-- 9. FAQ — sfondo alternato -->
     <section class="section bg-1" id="faq" aria-labelledby="faq-title">
       <div class="container narrow">
         <header class="section-head reveal">
@@ -441,8 +452,8 @@
       </div>
     </section>
 
-    <!-- 10. CONTATTI — sfondo #A5B72B -->
-    <section class="section bg-2" id="contatti" aria-labelledby="contatti-title">
+    <!-- 10. CONTATTI — sfondo alternato -->
+    <section class="section bg-3" id="contatti" aria-labelledby="contatti-title">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Contatti</p>
